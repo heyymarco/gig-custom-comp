@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { codeValues, colorValues, defineTheme } from '@reusable-ui/core'
 
-import './website.config';
+import './theme.config';
 
 
 

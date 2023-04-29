@@ -24,6 +24,8 @@ import {
     Styles,
     HeadPortal,
 } from '@cssfn/cssfn-react'
+import { SampleDropdown } from './components/SampleDropdown';
+import { SampleDialog } from './components/SampleDialog';
 
 
 
@@ -39,39 +41,7 @@ const ParagraphLorem = ({ words }: ParagraphLoremProps) => (
 
 
 
-const SampleDropdown = () => {
-    return (
-        <DropdownListButton
-            theme='primary'
-            buttonChildren={
-                'Show Menu'
-            }
-            className={styles.demoDropdown}
-        >
-            <ListItem>
-                A first item
-            </ListItem>
-            <ListItem>
-                A second item
-            </ListItem>
-            <ListItem className={styles.panelSensivity} actionCtrl={false}>
-                <>
-                    Sensivity: <Range />
-                </>
-            </ListItem>
-            <ListItem theme='success'>
-                Yess
-            </ListItem>
-            <ListItem theme='danger'>
-                Nooo
-            </ListItem>
-            <ListSeparatorItem />
-            <ListItem enabled={false}>
-                A disabled item
-            </ListItem>
-        </DropdownListButton>
-    );
-}
+
 
 
 
@@ -145,7 +115,7 @@ function App() {
                                 <SampleDropdown />
                             </AccordionItem>
                             <AccordionItem bodyComponent={<Content className={styles.demoPanel} />} label={<code>{'<CustomDialog>'}</code>}>
-                                <Button gradient>Edit Data</Button>
+                                <SampleDialog />
                             </AccordionItem>
                             <AccordionItem bodyComponent={<Content className={styles.demoPanel} />} label='Test'>
                                 <p>test</p>

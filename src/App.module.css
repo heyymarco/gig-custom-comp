@@ -29,13 +29,3 @@
   justify-content: center;
   align-content: center;
 }
-.demoDropdown {
-  position: relative;
-  inset-block-start: -130px;
-}
-.panelSensivity {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  gap: 0.25rem;
-}
