@@ -1,16 +1,16 @@
 export interface ProductEntry {
-    _id            : string
+    _id            ?: string
     
-    visibility     : string
+    visibility      : string
     
-    name           : string
+    name            : string
     
-    price          : number
-    shippingWeight : number|undefined
+    price           : number
+    shippingWeight ?: number
     
-    stock          : number|undefined
+    stock          ?: number
     
-    description    : string|undefined
-    images         : string[]
-    path           : string|undefined
+    description    ?: string
+    images          : string[]
+    path           ?: string
 }

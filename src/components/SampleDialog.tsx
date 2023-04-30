@@ -6,7 +6,7 @@ import { FullEditDialog } from './FullEditDialog'
 import { ProductEntry } from '../models/Product';
 import { formatCurrency } from '../libs/formatters';
 import ModalStatus from './ModalStatus';
-import { useEvent } from '@reusable-ui/core';
+import { useEvent, useTriggerRender } from '@reusable-ui/core';
 import { dynamicStyleSheet } from '@cssfn/cssfn-react';
 
 
@@ -30,7 +30,7 @@ export const SampleDialog = () => {
     
     
     
-    const product : ProductEntry = {
+    const [product, setProduct] = useState<ProductEntry>(() => ({
         _id: '#123',
         
         visibility: 'published',
@@ -50,7 +50,7 @@ export const SampleDialog = () => {
             'nokia-3310_3.jpg',
         ],
         path: 'nokia-3310'
-    };
+    }));
     const {
         name,
         images,
@@ -59,6 +59,7 @@ export const SampleDialog = () => {
         visibility,
         path,
     } = product;
+    const [triggerRender] = useTriggerRender();
     
     
     
@@ -103,7 +104,12 @@ export const SampleDialog = () => {
                     </EditButton>
                 </p>
             </div>
-            <ModalStatus theme='primary' modalCardStyle='scrollable' backdropStyle='static' onExpandedChange={({expanded}) => !expanded && setEditMode(null)}>
+            <ModalStatus theme='primary' modalCardStyle='scrollable' backdropStyle='static' onExpandedChange={({expanded}) => {
+                if (!expanded) {
+                    setEditMode(null);
+                    setProduct({...product});
+                } // if
+            }}>
                 {!!editMode && (editMode === 'full') && <FullEditDialog product={product} onClose={handleEditDialogClose} />}
             </ModalStatus>
         </div>
