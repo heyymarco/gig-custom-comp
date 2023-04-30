@@ -1,24 +1,18 @@
 import styles from './App.module.css'
 import {
     default as React,
-    useState,
 } from 'react';
 // import logo from './logo.svg';
 import {
     Accordion,
     AccordionItem,
-    Button,
     Content,
-    DropdownListButton,
     ExclusiveAccordion,
     Group,
     Icon,
     Label,
-    ListItem,
-    ListSeparatorItem,
     Tab,
     TabPanel,
-    Range,
 } from '@reusable-ui/components'
 import {
     Styles,
@@ -26,6 +20,7 @@ import {
 } from '@cssfn/cssfn-react'
 import { SampleDropdown } from './components/SampleDropdown';
 import { SampleDialog } from './components/SampleDialog';
+import { SampleNavigation } from './components/SampleNavigation';
 
 
 
@@ -41,18 +36,7 @@ const ParagraphLorem = ({ words }: ParagraphLoremProps) => (
 
 
 
-
-
-
-
 function App() {
-    const [value, setValue] = useState(0);
-    const handleTriggerRerender = () => {
-        setValue(value + 1);
-    };
-    
-    
-    
     return (
         <>
             <HeadPortal>
@@ -117,8 +101,8 @@ function App() {
                             <AccordionItem bodyComponent={<Content className={styles.demoPanel} />} label={<code>{'<CustomDialog>'}</code>}>
                                 <SampleDialog />
                             </AccordionItem>
-                            <AccordionItem bodyComponent={<Content className={styles.demoPanel} />} label='Test'>
-                                <p>test</p>
+                            <AccordionItem bodyComponent={<Content className={styles.demoPanel} />} label={<code>{'<Navigation>'}</code>}>
+                                <SampleNavigation />
                             </AccordionItem>
                         </ExclusiveAccordion>
                     </TabPanel>
