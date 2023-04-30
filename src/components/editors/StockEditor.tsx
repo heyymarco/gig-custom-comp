@@ -254,6 +254,11 @@ const StockEditor = <TElement extends Element = HTMLElement>(props: StockEditorP
                         
                         
                         
+                        // variants:
+                        theme='primary'
+                        
+                        
+                        
                         // classes:
                         className='fluid'
                         

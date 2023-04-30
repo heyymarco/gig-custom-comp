@@ -9,8 +9,8 @@ import './theme.config';
 
 
 
-defineTheme('secondary', 'hsl(216, 100%, 90%)');
-colorValues.secondaryMild = 'hsl(216, 100%, 95%)' as any;
+defineTheme('primaryAlt', 'hsl(216, 100%, 85%)');
+(colorValues as any).primaryAltMild = 'hsl(216, 100%, 87%)' as any;
 
 codeValues.fontSize = '1em';
 

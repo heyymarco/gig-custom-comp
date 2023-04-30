@@ -247,10 +247,10 @@ export const FullEditDialog = (props: FullEditDialogProps) => {
                             <ShippingWeightEditor className='sWeight editor'    value={shippingWeight} onChange={(value) => { setShippingWeight(value); setIsModified(true); }} />
                             
                             <span className='stock label'>Stock:</span>
-                            <StockEditor          className='stock editor'      value={stock}          onChange={(value) => { setStock(value)     ; setIsModified(true); }} theme='secondary' />
+                            <StockEditor          className='stock editor'      value={stock}          onChange={(value) => { setStock(value)     ; setIsModified(true); }} theme='primaryAlt' />
                             
                             <span className='visibility label'>Visibility:</span>
-                            <VisibilityEditor     className='visibility editor' value={visibility}     onChange={(value) => { setVisibility(value); setIsModified(true); }} theme='secondary' />
+                            <VisibilityEditor     className='visibility editor' value={visibility}     onChange={(value) => { setVisibility(value); setIsModified(true); }} theme='primaryAlt' />
                         </ValidationProvider>
                     </AccessibilityProvider>
                     <ModalStatus

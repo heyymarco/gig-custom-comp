@@ -116,7 +116,7 @@ const PathEditor = <TElement extends Element = HTMLSpanElement>(props: PathEdito
                 // accessibilities:
                 title={homeUrl}
             >
-                <Icon icon='home' theme='primary' />
+                <Icon icon='home' />
             </Label>
             <Label
                 // classes:

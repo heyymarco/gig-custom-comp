@@ -21,6 +21,7 @@ import {
 import { SampleDropdown } from './components/SampleDropdown';
 import { SampleDialog } from './components/SampleDialog';
 import { SampleNavigation } from './components/SampleNavigation';
+import { IconGallery } from './components/IconGallery';
 
 
 
@@ -44,7 +45,7 @@ function App() {
             </HeadPortal>
             <Content className={styles.page} theme='primary' gradient>
                 <Tab
-                    theme='secondary'
+                    theme='primaryAlt'
                     size='lg'
                     gradient={false}
                     defaultExpandedTabIndex={1}
@@ -104,9 +105,12 @@ function App() {
                             <AccordionItem bodyComponent={<Content className={styles.demoPanel} />} label={<code>{'<Navigation>'}</code>}>
                                 <SampleNavigation />
                             </AccordionItem>
+                            <AccordionItem bodyComponent={<Content className={styles.demoPanel} />} label={<code>{'<Pagination>'}</code>}>
+                                <IconGallery />
+                            </AccordionItem>
                         </ExclusiveAccordion>
                     </TabPanel>
-                    <TabPanel label={<h4>From Figma</h4>}>
+                    <TabPanel label={<h4>I&apos;m on Fiverr</h4>}>
                         <p>The detail of third item.</p>
                         <ParagraphLorem />
                         <ParagraphLorem />
