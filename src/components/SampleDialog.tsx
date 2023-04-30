@@ -1,13 +1,20 @@
 import {
+    useRef,
     useState,
 } from 'react';
 import { EditButton } from './EditButton'
 import { FullEditDialog } from './FullEditDialog'
 import { ProductEntry } from '../models/Product';
-import { formatCurrency } from '../libs/formatters';
+import { formatCurrency, getCurrencySign } from '../libs/formatters';
 import ModalStatus from './ModalStatus';
-import { useEvent, useTriggerRender } from '@reusable-ui/core';
+import { useEvent } from '@reusable-ui/core';
 import { dynamicStyleSheet } from '@cssfn/cssfn-react';
+import { SimpleEditDialog } from './SimpleEditDialog';
+import { COMMERCE_CURRENCY_FRACTION_MAX } from '../commerce.config';
+import CurrencyEditor from './editors/CurrencyEditor';
+import StockEditor from './editors/StockEditor';
+import TextEditor from './editors/TextEditor';
+import VisibilityEditor from './editors/VisibilityEditor';
 
 
 
@@ -59,7 +66,11 @@ export const SampleDialog = () => {
         visibility,
         path,
     } = product;
-    const [triggerRender] = useTriggerRender();
+    
+    
+    
+    // refs:
+    const listItemRef = useRef<HTMLDivElement|null>(null);
     
     
     
@@ -72,7 +83,7 @@ export const SampleDialog = () => {
     
     return (
         <div>
-            <div className={styles.main}>
+            <div className={styles.main} ref={listItemRef}>
                 <div className='prodImg'>
                     <img
                         alt={name ?? ''}
@@ -104,6 +115,19 @@ export const SampleDialog = () => {
                     </EditButton>
                 </p>
             </div>
+            <ModalStatus theme='primary' modalViewport={listItemRef} backdropStyle='static' onExpandedChange={({expanded}) => {
+                if (!expanded) {
+                    setEditMode(null);
+                    setProduct({...product});
+                } // if
+            }}>
+                {!!editMode && (editMode !== 'full') && <>
+                    {(editMode === 'name'      ) && <SimpleEditDialog product={product} edit={editMode} onClose={handleEditDialogClose} editorComponent={<TextEditor       required={true } />} />}
+                    {(editMode === 'price'     ) && <SimpleEditDialog product={product} edit={editMode} onClose={handleEditDialogClose} editorComponent={<CurrencyEditor   currencySign={getCurrencySign()} currencyFraction={COMMERCE_CURRENCY_FRACTION_MAX} />} />}
+                    {(editMode === 'stock'     ) && <SimpleEditDialog product={product} edit={editMode} onClose={handleEditDialogClose} editorComponent={<StockEditor      theme='secondary' />} />}
+                    {(editMode === 'visibility') && <SimpleEditDialog product={product} edit={editMode} onClose={handleEditDialogClose} editorComponent={<VisibilityEditor theme='secondary' />} />}
+                </>}
+            </ModalStatus>
             <ModalStatus theme='primary' modalCardStyle='scrollable' backdropStyle='static' onExpandedChange={({expanded}) => {
                 if (!expanded) {
                     setEditMode(null);

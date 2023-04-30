@@ -120,7 +120,7 @@ export const FullEditDialog = (props: FullEditDialogProps) => {
                 setTimeout(() => {
                     resolve();
                 }, 2000);
-            })
+            });
             
             product.name           = name;
             product.path           = path;
