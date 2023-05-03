@@ -6,8 +6,11 @@ import {
 import {
     Accordion,
     AccordionItem,
+    Basic,
+    Check,
     Content,
     ExclusiveAccordion,
+    Form,
     Group,
     Icon,
     Label,
@@ -22,6 +25,7 @@ import { SampleDropdown } from './components/SampleDropdown';
 import { SampleDialog } from './components/SampleDialog';
 import { SampleNavigation } from './components/SampleNavigation';
 import { IconGallery } from './components/IconGallery';
+import { FeatureItem } from './components/FeatureItem';
 
 
 
@@ -111,9 +115,56 @@ function App() {
                         </ExclusiveAccordion>
                     </TabPanel>
                     <TabPanel label={<h4>I&apos;m on Fiverr</h4>}>
-                        <p>The detail of third item.</p>
-                        <ParagraphLorem />
-                        <ParagraphLorem />
+                        <div className={styles.profile}>
+                            <img alt='' src='/marco.jpg' className={styles.profileImg} />
+                            <div className={styles.profileTxt}>
+                                <p>
+                                    Hi I&apos;m Marco. 
+                                </p>
+                                <p>
+                                    I'm a front-end web developer. My main job is developing web component in React. I created & maintain over 100+ custom components, hooks, & libs on Github/NPM.
+                                </p>
+                                <p>
+                                    I&apos;m on <strong>Fiverr</strong>, waiting for your order to fulfill my <em>passionable job</em>.
+                                </p>
+                            </div>
+                        </div>
+                        <hr />
+                        <h4>
+                            With my service, you&apos;ll get:
+                        </h4>
+                        <div className={styles.featureList}>
+                            <FeatureItem>
+                                <h4>
+                                    High Quality React Component
+                                </h4>
+                                <p className='lead'>
+                                    It&apos;s <strong>crafted for you</strong>, based on <em>your requirement</em>.
+                                    Much better than Bootstrap, Material UI, Chakra UI, and so on.
+                                </p>
+                            </FeatureItem>
+                            <FeatureItem>
+                                <h4>
+                                    Long Term Warranty
+                                </h4>
+                                <p className='lead'>
+                                    Even if the delivered project was out of warranty, you still get a <strong>free light modification request</strong>.
+                                </p>
+                                <p className='lead'>
+                                    If the modification seems a quite massive, an additional cost may apply.
+                                </p>
+                            </FeatureItem>
+                            <FeatureItem>
+                                <h4>
+                                    Includes My Maintained Libs
+                                </h4>
+                                <p className='lead'>
+                                    The delivered component may includes my <strong>pre written libs/utilities/sub_components</strong>.
+                                    These codes are <strong>actively maintained</strong> under my service.
+                                    Any bug report will be fixed as soon as possible.
+                                </p>
+                            </FeatureItem>
+                        </div>
                     </TabPanel>
                 </Tab>
             </Content>

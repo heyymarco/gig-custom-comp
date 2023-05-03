@@ -29,3 +29,22 @@
   justify-content: center;
   align-content: center;
 }
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  align-items: center;
+}
+.profileImg {
+  border-radius: 50%;
+  border: var(--bd-border);
+  width: 125px;
+}
+.featureList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
